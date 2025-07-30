@@ -36,7 +36,7 @@ export default function Header() {
           {/* Company Logo and Name */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="p-2 bg-brand-beige rounded-xl group-hover:bg-brand-cream transition-colors duration-300">
-              <HomeModernIcon className="h-8 w-8 text-font-dark" />
+              <img src="public/logo/your-logo.png" alt="Tishya Exports Logo" className="h-8 w-8" />
             </div>
             <div>
               <span className="text-2xl font-display font-bold text-font-dark">TISHYA</span>

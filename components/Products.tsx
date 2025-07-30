@@ -108,13 +108,17 @@ export default function Products() {
           ))}
         </div>
 
-        {/* Call to Action */}
+        {/* Call to Action - Download Brochure Button - FIXED */}
         <div className="text-center">
-          <Button size="lg" className="btn-primary text-xl px-12 py-6 shadow-elegant hover:shadow-strong" asChild>
-            <a href="/brochure/tishya-exports-brochure.pdf" download="Tishya-Exports-Brochure.pdf">
-              Download Brochure
-            </a>
-          </Button>
+          <a
+            href="app/public/brochure/tishya-exports-brochure.pdf"
+            download="Tishya-Exports-Brochure.pdf"
+            className="inline-block"
+          >
+            <Button size="lg" className="btn-primary text-xl px-12 py-6 shadow-elegant hover:shadow-strong">
+              Download Brochure <ArrowRightIcon className="ml-3 h-6 w-6" />
+            </Button>
+          </a>
         </div>
       </div>
     </section>
