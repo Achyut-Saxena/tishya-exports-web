@@ -1,0 +1,294 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Global Styles for Tishya Exports Website
+ * Updated with strict color palette usage
+ * Brand Colors: BFAFA1, E9E4D5, FFFAF0
+ * Font Colors: 7A9B91, 4C5B56, A3B5A1
+ */
+
+@layer base {
+  :root {
+    /* Updated color variables with strict palette */
+    --background: 255 250 240; /* FFFAF0 - Ivory */
+    --foreground: 76 91 86; /* 4C5B56 - Dark sage for primary text */
+    --card: 255 250 240; /* FFFAF0 - Ivory */
+    --card-foreground: 76 91 86; /* 4C5B56 - Dark sage */
+    --popover: 255 250 240;
+    --popover-foreground: 76 91 86;
+    --primary: 191 175 161; /* BFAFA1 - Warm beige */
+    --primary-foreground: 76 91 86;
+    --secondary: 233 228 213; /* E9E4D5 - Light cream */
+    --secondary-foreground: 76 91 86;
+    --muted: 233 228 213;
+    --muted-foreground: 122 155 145; /* 7A9B91 - Sage green */
+    --accent: 191 175 161;
+    --accent-foreground: 76 91 86;
+    --destructive: 191 175 161; /* Using brand color instead of red */
+    --destructive-foreground: 76 91 86;
+    --border: 233 228 213;
+    --input: 233 228 213;
+    --ring: 191 175 161;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 76 91 86;
+    --foreground: 255 250 240;
+    --card: 76 91 86;
+    --card-foreground: 255 250 240;
+    --popover: 76 91 86;
+    --popover-foreground: 255 250 240;
+    --primary: 255 250 240;
+    --primary-foreground: 76 91 86;
+    --secondary: 163 181 161;
+    --secondary-foreground: 255 250 240;
+    --muted: 163 181 161;
+    --muted-foreground: 122 155 145;
+    --accent: 163 181 161;
+    --accent-foreground: 255 250 240;
+    --destructive: 191 175 161;
+    --destructive-foreground: 255 250 240;
+    --border: 163 181 161;
+    --input: 163 181 161;
+    --ring: 191 175 161;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    /* Smooth scrolling for anchor links */
+    scroll-behavior: smooth;
+    /* Custom background with brand colors only */
+    background-image: radial-gradient(circle at 25% 25%, rgba(233, 228, 213, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(191, 175, 161, 0.1) 0%, transparent 50%);
+  }
+
+  /* Typography hierarchy with custom fonts and font colors */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-font-dark;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl font-bold leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold leading-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-medium;
+  }
+
+  p {
+    @apply font-body leading-relaxed text-font-sage;
+  }
+
+  /* Numbers and small text styling */
+  .number-text {
+    @apply font-body font-medium text-font-dark;
+  }
+}
+
+/* Custom utility classes using only specified colors */
+@layer utilities {
+  /* Brand gradient text effects */
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-brand-beige to-brand-cream bg-clip-text text-transparent;
+  }
+
+  /* Elegant stone texture overlay effect */
+  .stone-texture {
+    position: relative;
+    background-image: linear-gradient(45deg, rgba(255, 250, 240, 0.8) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(233, 228, 213, 0.6) 25%, transparent 25%);
+    background-size: 60px 60px;
+  }
+
+  /* Professional hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-elegant;
+  }
+
+  /* Elegant floating animation */
+  .float-animation {
+    @apply animate-float;
+  }
+
+  /* Custom scrollbar with brand colors */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #e9e4d5;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #bfafa1;
+    border-radius: 9999px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #bfafa1;
+    opacity: 0.8;
+  }
+
+  /* Video overlay for hero section */
+  .video-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 250, 240, 0.9) 0%,
+      rgba(233, 228, 213, 0.8) 50%,
+      rgba(191, 175, 161, 0.7) 100%
+    );
+  }
+}
+
+/* Enhanced animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Utility classes for animations */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+/* Professional form styling with brand colors only */
+.form-input {
+  @apply w-full px-4 py-3 border-2 border-brand-cream rounded-xl focus:ring-2 focus:ring-brand-beige focus:border-brand-beige transition-all duration-300 bg-brand-ivory font-body text-font-dark;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-3 border-2 border-brand-cream rounded-xl focus:ring-2 focus:ring-brand-beige focus:border-brand-beige transition-all duration-300 bg-brand-ivory resize-y font-body text-font-dark;
+}
+
+/* Professional button variants with brand colors only */
+.btn-primary {
+  @apply bg-brand-beige hover:bg-brand-cream text-font-dark font-display font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-soft hover:shadow-medium;
+}
+
+.btn-secondary {
+  @apply border-2 border-brand-beige text-font-sage hover:bg-brand-beige hover:text-font-dark font-display font-semibold px-8 py-4 rounded-xl transition-all duration-300;
+}
+
+/* Loading states with brand colors */
+.loading-shimmer {
+  background: linear-gradient(90deg, #fffaf0 25%, #e9e4d5 50%, #fffaf0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Print styles for professional documentation */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    color: #4c5b56;
+    background-color: #fffaf0;
+  }
+
+  .print-break {
+    page-break-before: always;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-font-sage {
+    color: #4c5b56;
+  }
+
+  .text-font-light {
+    color: #7a9b91;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body {
+    scroll-behavior: auto;
+  }
+
+  .float-animation {
+    animation: none;
+  }
+}
+
+/* Custom selection colors using brand palette */
+::selection {
+  background-color: rgba(191, 175, 161, 0.3);
+  color: #4c5b56;
+}
+
+::-moz-selection {
+  background-color: rgba(191, 175, 161, 0.3);
+  color: #4c5b56;
+}
