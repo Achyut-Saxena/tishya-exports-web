@@ -88,7 +88,11 @@ export default function Hero() {
               </Link>
             </Button>
 
-            <Button size="lg" className="btn-secondary text-lg px-10 py-5 backdrop-blur-sm" asChild>
+            <Button
+              size="lg"
+              className="btn-primary text-lg px-10 py-5 shadow-elegant hover:shadow-strong backdrop-blur-sm"
+              asChild
+            >
               <Link href="#products">View Products</Link>
             </Button>
           </div>

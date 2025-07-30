@@ -116,12 +116,31 @@ export default function Footer() {
             {/* Export Markets */}
             <div className="mt-8">
               <h5 className="font-display font-medium text-brand-beige mb-3">Export Markets</h5>
-              <div className="flex flex-wrap gap-2">
-                {exportMarkets.map((market) => (
-                  <span key={market} className="px-2 py-1 bg-stone-700 text-brand-cream font-body text-xs rounded-lg">
-                    {market}
+              <div className="relative group">
+                <div className="flex flex-wrap gap-2">
+                  {exportMarkets.slice(0, 3).map((market) => (
+                    <span key={market} className="px-2 py-1 bg-stone-700 text-brand-cream font-body text-xs rounded-lg">
+                      {market}
+                    </span>
+                  ))}
+                  <span className="px-2 py-1 bg-stone-700 text-brand-cream font-body text-xs rounded-lg cursor-pointer group-hover:hidden">
+                    +{exportMarkets.length - 3} more
                   </span>
-                ))}
+                </div>
+
+                {/* Expanded view on hover */}
+                <div className="absolute top-0 left-0 w-full hidden group-hover:block bg-stone-800/95 backdrop-blur-sm rounded-lg p-3 border border-stone-600 z-10">
+                  <div className="flex flex-wrap gap-2">
+                    {exportMarkets.map((market) => (
+                      <span
+                        key={market}
+                        className="px-2 py-1 bg-stone-700 text-brand-cream font-body text-xs rounded-lg"
+                      >
+                        {market}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -99,9 +99,9 @@ export default function Products() {
                   </div>
                 </div>
 
-                {/* Learn More Button */}
-                <Button className="w-full btn-secondary group-hover:bg-brand-beige group-hover:text-font-dark">
-                  Learn More <ArrowRightIcon className="ml-2 h-5 w-5" />
+                {/* Discover Button */}
+                <Button className="w-full btn-primary shadow-elegant hover:shadow-strong">
+                  Discover <ArrowRightIcon className="ml-2 h-5 w-5" />
                 </Button>
               </CardContent>
             </Card>
@@ -110,8 +110,10 @@ export default function Products() {
 
         {/* Call to Action */}
         <div className="text-center">
-          <Button size="lg" className="btn-primary text-xl px-12 py-6 shadow-elegant hover:shadow-strong">
-            Request Product Catalog
+          <Button size="lg" className="btn-primary text-xl px-12 py-6 shadow-elegant hover:shadow-strong" asChild>
+            <a href="/brochure/tishya-exports-brochure.pdf" download="Tishya-Exports-Brochure.pdf">
+              Download Brochure
+            </a>
           </Button>
         </div>
       </div>
