@@ -4,6 +4,7 @@ import About from "@/components/About"
 import Products from "@/components/Products"
 import Process from "@/components/Process"
 import Projects from "@/components/Projects"
+import Gallery from "@/components/Gallery"
 import Team from "@/components/Team"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
@@ -11,7 +12,7 @@ import Footer from "@/components/Footer"
 /**
  * Main Home Page Component
  * This is the landing page that showcases all major sections of Tishya Exports
- * Sections included: Hero, About, Products, Process, Projects, Team, Contact
+ * Sections included: Hero, About, Products, Process, Projects, Gallery, Team, Contact
  */
 export default function Home() {
   return (
@@ -33,6 +34,9 @@ export default function Home() {
 
       {/* Projects Section - Notable clients and completed work */}
       <Projects />
+
+      {/* Gallery Section - Visual showcase of operations and products */}
+      <Gallery />
 
       {/* Team Section - Leadership and company culture */}
       <Team />

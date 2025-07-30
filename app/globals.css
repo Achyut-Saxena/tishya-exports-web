@@ -4,7 +4,7 @@
 
 /**
  * Global Styles for Tishya Exports Website
- * Updated with strict color palette usage
+ * Updated with video background optimizations
  * Brand Colors: BFAFA1, E9E4D5, FFFAF0
  * Font Colors: 7A9B91, 4C5B56, A3B5A1
  */
@@ -105,6 +105,22 @@
   .number-text {
     @apply font-body font-medium text-font-dark;
   }
+
+  /* Video performance optimizations */
+  video {
+    /* Improve video rendering performance */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    video {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
 }
 
 /* Custom utility classes using only specified colors */
@@ -114,12 +130,13 @@
     @apply bg-gradient-to-r from-brand-beige to-brand-cream bg-clip-text text-transparent;
   }
 
-  /* Elegant stone texture overlay effect */
-  .stone-texture {
-    position: relative;
-    background-image: linear-gradient(45deg, rgba(255, 250, 240, 0.8) 25%, transparent 25%),
-      linear-gradient(-45deg, rgba(233, 228, 213, 0.6) 25%, transparent 25%);
-    background-size: 60px 60px;
+  /* Enhanced glass morphism effects for video overlay */
+  .glass-effect {
+    @apply bg-brand-ivory/60 backdrop-blur-md border border-brand-cream/40 shadow-elegant;
+  }
+
+  .glass-effect-strong {
+    @apply bg-brand-ivory/80 backdrop-blur-lg border border-brand-cream/60 shadow-strong;
   }
 
   /* Professional hover effects */
@@ -151,14 +168,39 @@
     opacity: 0.8;
   }
 
-  /* Video overlay for hero section */
-  .video-overlay {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 250, 240, 0.9) 0%,
-      rgba(233, 228, 213, 0.8) 50%,
-      rgba(191, 175, 161, 0.7) 100%
-    );
+  /* Video blur effects with different intensities */
+  .blur-subtle {
+    filter: blur(1px);
+  }
+
+  .blur-soft {
+    filter: blur(2px);
+  }
+
+  .blur-medium {
+    filter: blur(3px);
+  }
+
+  /* Responsive video scaling */
+  .video-scale {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .video-scale {
+      transform: scale(1.1);
+    }
+  }
+
+  /* Performance optimizations for mobile */
+  @media (max-width: 640px) {
+    .backdrop-blur-md {
+      backdrop-filter: blur(8px);
+    }
+
+    .backdrop-blur-lg {
+      backdrop-filter: blur(12px);
+    }
   }
 }
 
@@ -280,6 +322,10 @@
   .float-animation {
     animation: none;
   }
+
+  video {
+    animation: none !important;
+  }
 }
 
 /* Custom selection colors using brand palette */
@@ -291,4 +337,26 @@
 ::-moz-selection {
   background-color: rgba(191, 175, 161, 0.3);
   color: #4c5b56;
+}
+
+/* Video loading states */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+/* Optimize video for different screen sizes */
+@media (max-width: 768px) {
+  video {
+    object-position: center center;
+  }
+}
+
+@media (orientation: portrait) {
+  video {
+    object-position: center top;
+  }
 }

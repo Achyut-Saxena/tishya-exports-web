@@ -24,6 +24,7 @@ export default function Header() {
     { name: "About", href: "#about" },
     { name: "Products", href: "#products" },
     { name: "Projects", href: "#projects" },
+    { name: "Gallery", href: "#gallery" },
     { name: "Import/Export", href: "/import-export" },
     { name: "Contact", href: "#contact" },
   ]
